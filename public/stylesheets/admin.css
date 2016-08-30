@@ -1,0 +1,153 @@
+/*left navbar*/
+.left-navbar{
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 10;
+    height: 100%;
+    width: 45px;
+    background-color: #2a2a2a;
+    border-radius: 0 !important;
+    text-align: center;
+    border: none;
+}
+.left-navbar>a{
+    text-align: center;
+    vertical-align: middle;
+    display: block;
+    width: 100%;
+    height: 120px;
+    padding: 5px 10px 0 10px;
+}
+.left-navbar>a>span,.left-navbar>a:visited,.left-navbar>a:hover,.left-navbar>a:focus{
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+.left-navbar>a:hover,.left-navbar>a:focus{
+    background-color: #f49484;
+}
+.left-navbar .navbar-active{
+    background-color: #e78170;
+}
+
+/*body*/
+.body-container{
+    margin-left: 45px;
+    text-align: center;
+}
+.body-container>p:first-child{
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #e78170;
+}
+.body-container>p:nth-child(2){
+    font-size: 20px;
+    margin-top: 5px;
+    font-weight: 300;
+    color: #e78170;
+}
+.body-container>div{
+    width: 100%;
+    height: 20px;
+}
+.body-container .li-search{
+    margin-left: 10px;
+}
+.body-container .info>th{
+    background-color: #f49484 !important;
+}
+.body-container>.dataTables_wrapper>div>table>tbody>tr>td>button{
+    background-color: #fff;
+    color: #000;
+    padding: 1px 3px;
+    border: 1px solid #bbb;
+}
+.body-container .pagination>li>a{
+    color: #e78170 !important;
+}
+.body-container .pagination>.active>a{
+    background-color: #eee !important;
+    border-color: #eee !important;
+}
+
+/*modal*/
+.modal-edit{
+    text-align: center;
+}
+.modal-edit>form>div>label{
+    width: 25% !important;
+    display: inline-block !important;
+}
+.modal-edit>form>div>input,
+.modal-edit>form>div>select{
+    width: 70% !important;
+    display: inline-block !important;
+}
+.modal-edit>form>input{
+    background-color: #e78170;
+    color: #fff;
+}
+.modal-edit .art-content{
+    width: 100%;
+    min-height:300px;
+    visibility: hidden;
+}
+.modal-edit .ke-container{
+    width: 100% !important;
+}
+
+/*modal add user*/
+.modal-add>ul>li>a{
+    color: #000 !important;
+}
+.modal-add>.tab-content{
+    margin-top: 10px;
+}
+.modal-add>.tab-content>div>.hand{
+    text-align: center;
+}
+.modal-add>.tab-content>div>.hand>div>label{
+    display: inline-block;
+    width: 30%;
+    margin-bottom: 5px;
+}
+.modal-add>.tab-content>div>.hand>div>input,
+.modal-add>.tab-content>div>.hand>div>select{
+    display: inline-block;
+    width: 65%;
+}
+.modal-add>.tab-content>div>.hand>input{
+    margin-top: 15px;
+    background-color: #fff;
+    border:1px solid #bbb;
+}
+
+.modal-add>.tab-content>div>.excel{
+    text-align: center;
+}
+
+.modal-add>.tab-content>.excel>form>.btn{
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+    margin-bottom: 20px;
+    margin: auto;
+    display: block;
+    width: 100px;
+}
+.modal-add>.tab-content>.excel>form>input:first-child{
+    display: inline;
+    float: left;
+}
+.modal-add>.tab-content>.excel>form>a{
+    float: right;
+    margin-right: 20px;
+}
+.modal-add>.tab-content>.excel>form>div{
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    clear: both;
+}

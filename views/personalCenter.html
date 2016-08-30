@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+
+    <link href="/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/lib/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/stylesheets/personalCenter.css">
+</head>
+<body>
+
+<% include common/userBar.html %>
+
+<!--left navbar-->
+<div class="navbar left-navbar">
+    <a href="/index"><span>教师成果</span></a>
+    <a href="/indexTeaArt"><span>教师文章</span></a>
+    <a href="/indexStuArt"><span>学生心得</span></a>
+</div>
+
+<!--body-->
+<div class="body-container">
+    <div class="per-info">
+        <h3>个人信息</h3>
+
+        <input type="hidden" id="user-id">
+
+        <div>
+            <label class="form-control">姓名：</label>
+            <input id="user-name" class="form-control" type="text" name="name" required value="<%= user.name %>" />
+        </div>
+
+        <div>
+            <label class="form-control">性别：</label>
+            <select id="user-sex" class="form-control" name="sex">
+                <% if ( user.sex == '女' ){ %>
+                <option value ="男">男</option>
+                <option value ="女" selected="selected">女</option>
+                <% }else{ %>
+                <option value ="男" selected="selected">男</option>
+                <option value ="女">女</option>
+                <% } %>
+            </select>
+        </div>
+
+        <div>
+            <label class="form-control">学院：</label>
+            <input id="user-academic" class="form-control" type="text" name="academic" value="<%= user.academic %>"/>
+        </div>
+
+        <div>
+            <label class="form-control">职称：</label>
+            <input id="user-rank" class="form-control" type="text" name="rank" value="<%= user.rank %>"/>
+        </div>
+
+        <div>
+            <label class="form-control">联系：</label>
+            <input id="user-contact" class="form-control" type="text" name="contact" value="<%= user.contact %>"/>
+        </div>
+
+        <div>
+            <label class="form-control">备注：</label>
+            <input id="user-remark" class="form-control" type="text" name="remark" value="<%= user.remark %>"/>
+        </div>
+
+        <div>
+            <label class="form-control">简介：</label>
+            <input id="user-brief" class="form-control" type="text" name="brief" value="<%= user.brief %>"/>
+        </div>
+
+        <input onclick="infoSubmit()" class="btn" type="button" value="编辑">
+
+        <a class="btn" data-toggle="modal" data-target="#changePassword">修改密码</a>
+    </div>
+    <div class="per-doc">
+        <% if(user.type!='student'){%>
+        <ul id="type" class="nav nav-tabs">
+            <li><a href="/personalCenter?type=all">所有分类 <span class="badge"><%=badge.all%></span></a></li>
+            <li><a href="/personalCenter?type=thesis">论文 <span class="badge"><%=badge.thesis%></span></a></li>
+            <li><a href="/personalCenter?type=lecture">讲座 <span class="badge"><%=badge.lecture%></span></a></li>
+            <li><a href="/personalCenter?type=award">获奖 <span class="badge"><%=badge.award%></span></a></li>
+            <li><a href="/personalCenter?type=article">文章 <span class="badge"><%=badge.article%></span></a></li>
+            <li><a href="/personalCenter?type=others">其他 <span class="badge"><%=badge.others%></span></a></li>
+            <li class="search">
+                <form id="search-form">
+                    <input type="search" id="content" placeholder="搜索成果">
+                    <i class="icon-search" onclick="go(1)"></i>
+                </form>
+            </li>
+        </ul>
+        <% }%>
+        <ul class="nav">
+
+            <% if(pageObj.data && pageObj.data.length > 0) { %>
+            <% pageObj.data.forEach(function (item) { %>
+            <li>
+                <a href="/articleDetail?id=<%= item._id%>">
+                    <% if(item.image){ %>
+                    <img src="<%= item.image %>" alt="jpg">
+                    <% }else{ %>
+                    <img src="/images/article.jpg" alt="jpg">
+                    <% } %>
+
+
+                    <div>
+                        <p>类型:
+                            <% if(item.type=='thesis'){ %>
+                            论文
+                            <% }else if(item.type=='lecture'){%>
+                            讲座
+                            <% }else if(item.type=='award'){%>
+                            获奖
+                            <% }else if(item.type=='article'){%>
+                            文章
+                            <% }else{%>
+                            其它
+                            <% }%>
+                            &nbsp;
+                            <% if(item.status==false){ %>
+                                <span style="color: #e78170">正在审核中</span>
+                            <% }%>
+                        </p>
+                        <h3><%= item.title %></h3>
+                        <span>发表日期:<%= item.date %> · 阅读:<%= item.read %></span>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </a>
+            </li>
+            <% }) %>
+            <% } %>
+
+        </ul>
+        <% include common/paginationAjax.html %>
+    </div>
+</div>
+
+<div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">修改密码</h4>
+            </div>
+
+            <div class="modal-body">
+                <form id="passwordForm" action="/changePassword" method="post">
+                    <span class="form-control">请输入旧密码:</span>
+                    <input class="form-control" type="password" name="password">
+                    <span class="form-control">密码:</span>
+                    <input class="form-control" type="password" id="password" name="new_password">
+                    <span class="form-control">再次密码:</span>
+                    <input class="form-control" type="password" id="password_re" name="password_re">
+                    <input class="btn btn-sub" type="button" onclick="checkPwd()" value="修改密码"/>
+                    <br/>
+                    <span class="pwdMessage"></span>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="/lib/jQuery/jquery.min.js"></script>
+
+<script src="/lib/bootstrap/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    var pageObj =  <%- JSON.stringify(pageObj) %>;
+    $(function(){
+        if(pageObj.content)  $("#content").val(pageObj.content);
+        var type = pageObj.type;
+        if((typeof type)=='undefined')  type='all';
+        console.log(type);
+        if(type=='all'){
+            $("#type li:eq(0)").addClass("active");
+        }else if(type=='thesis'){
+            $("#type li:eq(1)").addClass("active");
+        }else if(type=='lecture'){
+            $("#type li:eq(2)").addClass("active");
+        }else if(type=='award'){
+            $("#type li:eq(3)").addClass("active");
+        }else if(type=='article'){
+            $("#type li:eq(4)").addClass("active");
+        }else if(type=='others'){
+            $("#type li:eq(5)").addClass("active");
+        }
+
+    });
+    function infoSubmit(){
+        var data={};
+        data.id=$('#user-id').val();
+        data.name=$('#user-name').val();
+        data.sex=$('#user-sex').val();
+        data.academic=$('#user-academic').val();
+        data.rank=$('#user-rank').val();
+        data.contact=$('#user-contact').val();
+        data.brief=$('#user-brief').val();
+        data.remark=$('#user-remark').val();
+
+        $.ajax({
+            url:"/updateUser",
+            type:"POST",
+            data:data,
+            success:function(result){
+                if(result.type==1){
+                    alert("成功编辑");
+                    location.reload();
+                }else{
+                    alert("编辑失败");
+                }
+            }
+        });
+    }
+
+    function checkPwd(){
+        if($('#password').val() !== $('#password_re').val()){
+            $('.pwdMessage').text('两次输入的新密码不一致!');
+        }else{
+            $.ajax({
+                url:"/changePassword",
+                type:"POST",
+                data:$('#passwordForm').serialize(),
+                success:function(result){
+                    if(result == 'success'){
+                        alert('密码修改成功');
+                        window.location.reload();
+                    }else{
+                        alert('旧密码错误');
+                    }
+                }
+            });
+        }
+    }
+
+    function go(page) {
+        var url = '/personalCenter?page='+page;
+        if(pageObj.type)  url+='&type='+  pageObj.type;
+        if($("#content").val().trim()!='')  url+='&content='+  $("#content").val().trim();
+
+        window.location.href = url;
+    }
+</script>
+
+</html>

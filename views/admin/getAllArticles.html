@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查找用户</title>
+    <link href="/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/lib/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/lib/kindeditor/themes/default/default.css">
+
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+
+</head>
+<body>
+    <!--left navbar-->
+    <div class="navbar left-navbar">
+        <a href="/index"><span>返回首页</span></a>
+        <a href="/getUsers"><span>用户列表</span></a>
+        <a class="navbar-active" href="/getAllArticles"><span>文章列表</span></a>
+        <a href="/getComments"><span>评论列表</span></a>
+    </div>
+
+    <!--body-->
+    <div class="body-container">
+        <p>东华大学</p>
+        <p>教师教学成果信息管理系统</p>
+
+        <nav class="navbar navbar-default container">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="glyphicon glyphicon-bar"></span>
+                        <span class="glyphicon glyphicon-bar"></span>
+                        <span class="glyphicon glyphicon-bar"></span>
+                    </button>
+                    <span class="navbar-brand">筛选</span>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <form class="navbar-form">
+                                <label>身份：</label>
+
+                                <div class="form-group">
+                                    <select id="id_type" name="id_type" class="form-control" onchange="go(1)">
+                                        <option value="all">全部</option>
+                                        <% if(user.type=='superadmin'){%>
+                                             <option value="admin">管理员</option>
+                                        <%}%>
+                                        <option value="teacher">老师</option>
+                                        <option value="student">学生</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </li>
+                        <li>
+                            <form class="navbar-form">
+                                <label>文章类型：</label>
+
+                                <div class="form-group">
+                                    <select id="type" name="type" class="form-control" onchange="go(1)">
+                                        <option value="all">全部</option>
+                                        <option value="thesis">论文</option>
+                                        <option value="lecture">讲座</option>
+                                        <option value="award">获奖</option>
+                                        <option value="article">文章</option>
+                                        <option value="others">其它</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </li>
+                        <li>
+                            <form class="navbar-form">
+                                <label>审核状态：</label>
+
+                                <div class="form-group">
+                                    <select id="status" name="status" class="form-control" onchange="go(1)">
+                                        <option value="all">全部</option>
+                                        <option value="true">通过</option>
+                                        <option value="false">审核中</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </li>
+                        <li>
+                            <form class="navbar-form">
+                                <label>显示条数：</label>
+
+                                <select id="limit" name="limit" class="form-control" onchange="go(1)">
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                </select>
+
+                            </form>
+                        </li>
+                        <li class="li-search">
+                            <div class="navbar-form navbar-left" role="search">
+                                <div class="form-group">
+                                    <input type="text" id="content" class="form-control" placeholder="Search">
+                                </div>
+                                <button class="btn btn-default" onclick="go(1)">搜索</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+             <div class="table-responsive" id="pageObj">
+                 <table class="table table-striped table-hover">
+                     <thead align="middle">
+                     <tr class="info">
+                         <th class="text-center">作者id</th>
+                         <th class="text-center">名字</th>
+                         <th class="text-center">身份</th>
+                         <th class="text-center">文章类型</th>
+                         <th class="text-center">文章标题</th>
+                         <th class="text-center">审核状态</th>
+                         <th class="text-center">日期</th>
+                         <th class="text-center">操作</th>
+                     </tr>
+
+                     </thead>
+                     <tbody>
+
+                     <% if(pageObj.data && pageObj.data.length > 0) { %>
+                     <% pageObj.data.forEach(function (item) { %>
+                     <tr>
+                         <td><a href="/personalInfo?id=<%=item.id%>"><%= item.id %></a></td>
+                         <td><%= item.name %></td>
+                         <% if(item.id_type == 'admin'){ %>
+                         <td>管理员</td>
+                         <% }else if(item.id_type == 'teacher'){ %>
+                         <td>教师</td>
+                         <% }else{ %>
+                         <td>学生</td>
+                         <% } %>
+                         <% if(item.type == 'thesis'){ %>
+                         <td>论文</td>
+                         <% }else if(item.type == 'lecture'){ %>
+                         <td>讲座</td>
+                         <% }else if(item.type == 'award'){ %>
+                         <td>获奖</td>
+                         <% }else if(item.type == 'article'){ %>
+                         <td>文章</td>
+                         <% }else{ %>
+                         <td>其它</td>
+                         <% } %>
+
+                         <td><%= item.title %></td>
+
+                         <% if(item.status == true){ %>
+                         <td>通过</td>
+                         <% }else{ %>
+                         <td>审核中</td>
+                         <% } %>
+                         <td><%= item.date %></td>
+                         <td>
+                             <input type="hidden" class="hidden-id" value="<%= item._id %>">
+                             <button data-toggle="modal" data-target="#modal-user" onclick="openModal(this)">修改</button>
+                             <button onclick="delArt(this)">删除</button>
+                         </td>
+                     </tr>
+                     <% }) %>
+                     <% } %>
+                     </tbody>
+                 </table>
+                 <% include ../common/paginationAjax.html %>
+             </div>
+         </div>
+    </div>
+    <!--modal-->
+    <div class="modal fade" id="modal-user" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">用户信息编辑</h4>
+                </div>
+
+                <div class="modal-body modal-edit">
+                    <form action="">
+                        <div>
+                            <label class="form-control">标题：</label>
+                            <input id="art-title" class="form-control" type="text" name="title" required />
+                        </div>
+
+                        <div>
+                            <label class="form-control">审核状态：</label>
+                            <select class="form-control" id="art-status" name="status">
+                                <option value="true">通过</option>
+                                <option value="false">未通过</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="form-control">文章类型：</label>
+                            <select class="form-control" id="art-type" name="type">
+                                <option value="thesis">论文</option>
+                                <option value="lecture">讲座</option>
+                                <option value="award">获奖</option>
+                                <option value="article">文章</option>
+                                <option value="others">其他</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="form-control">内容：</label>
+                            <textarea class="art-content" id="art-content" name="content"></textarea>
+                        </div>
+
+                        <input class="btn" onclick="submitArt()" type="button" value="编辑">
+
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="/lib/jQuery/jquery.min.js"></script>
+
+<script src="/lib/bootstrap/bootstrap.min.js"></script>
+
+<script src="/lib/kindeditor/kindeditor-min.js"></script>
+
+<script src="/lib/kindeditor/lang/zh_CN.js"></script>
+
+<script type="text/javascript">
+    var editor;
+    KindEditor.ready(function(K) {
+        editor = K.create('textarea[name="content"]', {
+            allowFileManager : true
+        });
+    });
+
+    var artId;
+
+   $(function(){
+       var pageObj =  <%- JSON.stringify(pageObj) %>;
+       if(pageObj.type)  $("#type").val(pageObj.type);
+       if(pageObj.limit)  $("#limit").val(pageObj.limit);
+       if(pageObj.content)  $("#content").val(pageObj.content);
+       if(pageObj.id_type)  $("#id_type").val(pageObj.id_type);
+       if(pageObj.status)  $("#status").val(pageObj.status);
+   });
+
+    function openModal(btn){
+        var articles = <%- JSON.stringify(pageObj.data) %>;
+        artId=$(btn).prevAll('.hidden-id').val();
+        for(var i=0;i<articles.length;i++){
+            if(articles[i]._id == artId){
+                $('#art-title').val(articles[i].title);
+                $('#art-status').val(articles[i].status+'');
+                $('#art-type').val(articles[i].type);
+                editor.html(articles[i].content);
+            }
+        }
+    }
+
+    function submitArt(){
+        var data={};
+        data._id=artId;
+        data.title=$('#art-title').val();
+        data.status=$('#art-status').val();
+        data.content=editor.html();
+        data.type=$('#art-type').val();
+
+        $.ajax({
+            url:"/editArticle",
+            type:"POST",
+            data:data,
+            success:function(result){
+                if(result.rs == 'success'){
+                    location.reload();
+                }else{
+                    alert(result.rs);
+                }
+            }
+        });
+    }
+
+    function delArt(btn){
+        var con=window.confirm("是否删除?");
+        if(con == true){
+            var rs={};
+            rs._id=$(btn).prevAll('.hidden-id').val();
+            $.ajax({
+                url:"/removeArticle",
+                type:"POST",
+                data:rs,
+                success:function(result){
+                    if(result.rs == 'success'){
+                        alert("删除成功");
+                        window.location.reload();
+                    }
+                }
+            });
+        }
+    }
+
+    function go(page) {
+        /*var params = {};
+        params.page = page;
+        params.limit = $("#limit").val();
+        params.type = $("#type").val();
+        params.content = $("#content").val();
+        var url = '/getUsersByLimits';
+        $.ajax({
+            url: url,
+            data: params,
+            type: 'get',
+            success: function (result) {
+                /!*console.log(result);
+                $('#pageObj').html(result);*!/
+                location.reload();
+            }
+        });*/
+        var url = '/getAllArticles?page='+page;
+        if($("#id_type").val().trim()!='')  url+='&id_type='+  $("#id_type").val().trim();
+        if($("#limit").val().trim()!='')  url+='&limit='+  $("#limit").val().trim();
+        if($("#type").val().trim()!='')  url+='&type='+  $("#type").val().trim();
+        if($("#status").val().trim()!='')  url+='&status='+  $("#status").val().trim();
+        if($("#content").val().trim()!='')  url+='&content='+  $("#content").val().trim();
+
+        window.location.href = url;
+    }
+
+</script>
+
+</html>

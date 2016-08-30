@@ -1,0 +1,184 @@
+/*left navbar*/
+.left-navbar{
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 10;
+    height: 100%;
+    width: 45px;
+    background-color: #2a2a2a;
+    border-radius: 0 !important;
+    text-align: center;
+    border: none;
+}
+.left-navbar>a{
+    text-align: center;
+    vertical-align: middle;
+    display: block;
+    width: 100%;
+    height: 120px;
+    padding: 5px 10px 0 10px;
+}
+.left-navbar>a>span,.left-navbar>a:visited,.left-navbar>a:hover,.left-navbar>a:focus{
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+.left-navbar>a:hover,.left-navbar>a:focus{
+    background-color: #f49484;
+}
+.left-navbar .navbar-active{
+    background-color: #e78170;
+}
+
+/*right container*/
+.right-container{
+    width: 100%;
+}
+.right-container .right-picture{
+    width: 20%;
+    float: left;
+    background: url(../images/index-bg3.jpg) no-repeat;
+    min-height: 300px;
+    height: 100%;
+    display: block;
+    position: fixed;
+    top:0;
+    left: 45px;
+}
+.right-container .right-picture-teaArt{
+    background: url(../images/index-bg2.jpg) no-repeat !important;
+}
+.right-container .right-picture-stuArt{
+    background: url(../images/index-bg1.jpg) no-repeat !important;
+}
+.right-container .right-picture>div{
+    position: absolute;
+    bottom: 0;
+    padding: 30px;
+    text-align: center;
+}
+.right-container .right-picture>div>span{
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    display: block;
+    text-shadow: -1px 0 0 rgba(0,0,0,0.75);
+}
+.right-container .right-picture>div>button{
+    font-size: 20px;
+    margin-top: 20px;
+    background-color: #e78170;
+    color: #fff;
+}
+.right-container .right-picture>div>button:hover{
+    background-color: #f49484;
+}
+
+.right-container .right-content{
+    margin-left: 20%;
+    padding-left: 45px;
+    width: 60%;
+    max-width: 1000px;
+}
+.right-container .right-content .page-title{
+    width: 60%;
+    position: fixed;
+    top:0;
+    background-color: #fff;
+    z-index: 10;
+    border-bottom: 2px solid #d9d9d9;
+}
+.right-container .right-content a{
+    color: #2a2a2a !important;
+    border-radius: 0 !important;
+}
+.right-container .right-content a:hover{
+    background-color: #fff !important;
+}
+.right-container .right-content .active>a{
+    background-color: #f49484 !important;
+    color: #fff !important;
+    border-color: #f49484 !important;
+}
+.right-container .right-content .active>a>span.badge{
+    background-color: #FFF;
+    color: #f49484;
+}
+.right-container .right-content .active>a.active>span.badge{
+    background-color: #fff;
+}
+
+.right-container .right-content .search{
+    float: right;
+    margin-top: 5px;
+    border-radius: 15px;
+    border: 1px solid #999999;
+    padding: 3px 10px;
+}
+.right-container .right-content .search>form>input,
+.right-container .right-content .search>form>input:focus
+{
+    border: none;
+    outline: none;
+}
+.right-container .right-content .search .icon-search{
+    color: #bbbbbb;
+}
+.right-container .right-content .search .icon-search:hover{
+    cursor: pointer;
+}
+
+.right-container .list-container>.nav-tabs{
+    margin-top: 50px;
+    border: none;
+}
+.right-container .list-container>.nav-tabs>li{
+    margin: 10px 20px;
+}
+.right-container .list-container>.nav-tabs>li>a{
+    font-size: 10px !important;
+    border: 1px solid #bbbbbb;
+    border-radius: 30px !important;
+    padding: 5px 10px !important;
+}
+.right-container .list-container>.nav-tabs>li>a:hover{
+    color: #e78170 !important;
+    border-color: #e78170 !important;
+}
+.right-container .list-container>.nav-tabs>li>a:hover>span{
+    color: #e78170;
+    background-color: #fff;
+}
+.right-container .list-container>.nav-tabs>li.active>a:hover{
+      color: #FFF !important;
+      border-color: #e78170 !important;
+}
+
+
+.right-container .list-container>.nav-tabs>li>a>i{
+    margin-left: 3px;
+}
+
+.right-container .list-container>.list-body>li{
+    width: 100%;
+    position: relative;
+    padding-left: 10px;
+    border-bottom: 1px dashed #d9d9d9;
+}
+.right-container .list-container>.list-body>li>a>img{
+    float: right;
+    width: 100px;
+    height: 100px;
+}
+.right-container .list-container>.list-body>li>a>div>p,
+.right-container .list-container>.list-body>li>a>div>span{
+    color: #999999;
+}
+.right-container .list-container>.list-body>li>a>div>h3{
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+}
+.right-container .list-container>.list-art{
+    margin-top: 70px;
+}

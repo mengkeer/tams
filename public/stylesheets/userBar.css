@@ -1,0 +1,17 @@
+/*user bar*/
+.user{
+    position: fixed;
+    top:10px;
+    right:0;
+    z-index: 11;
+}
+.user>a{
+    margin-right: 15px;
+}
+.user>a:visited{
+    color: #555;
+}
+.user>a,.user>a>i{
+    color: #555;
+    text-decoration: none;
+}

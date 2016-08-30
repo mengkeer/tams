@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+
+    <link href="/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/lib/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/stylesheets/personalCenter.css">
+</head>
+<body>
+
+    <% include common/userBar.html %>
+
+    <!--left navbar-->
+    <div class="navbar left-navbar">
+        <a href="/index"><span>教师成果</span></a>
+        <a href="/indexTeaArt"><span>教师文章</span></a>
+        <a href="/indexStuArt"><span>学生心得</span></a>
+    </div>
+
+    <!--body-->
+    <div class="body-container">
+        <div class="per-info">
+            <h3>个人信息</h3>
+
+            <input type="hidden" id="user-id">
+
+            <div>
+                <label class="form-control">姓名：</label>
+                <% if(user.name){ %>
+                <span class="form-control"><%= user.name %></span>
+                <% }else{ %>
+                <span class="form-control">(暂未填写)</span>
+                <% } %>
+
+            </div>
+
+            <div>
+                <label class="form-control">性别：</label>
+                <span class="form-control"><%= user.sex %></span>
+            </div>
+
+            <div>
+                <label class="form-control">学院：</label>
+                <% if(user.academic){ %>
+                <span class="form-control"><%= user.academic %></span>
+                <% }else{ %>
+                <span class="form-control">(暂未填写)</span>
+                <% } %>
+            </div>
+
+            <div>
+                <label class="form-control">职称：</label>
+                <% if(user.rank){ %>
+                <span class="form-control"><%= user.rank %></span>
+                <% }else{ %>
+                <span class="form-control">(暂未填写)</span>
+                <% } %>
+            </div>
+
+            <div>
+                <label class="form-control">联系：</label>
+                <% if(user.contact){ %>
+                <span class="form-control"><%= user.contact %></span>
+                <% }else{ %>
+                <span class="form-control">(暂未填写)</span>
+                <% } %>
+            </div>
+
+            <div>
+                <label class="form-control">备注：</label>
+                <% if(user.remark){ %>
+                <span class="form-control"><%= user.remark %></span>
+                <% }else{ %>
+                <span class="form-control">(暂未填写)</span>
+                <% } %>
+            </div>
+
+            <div>
+                <label class="form-control">简介：</label>
+                <% if(user.brief){ %>
+                <span class="form-control"><%= user.brief %></span>
+                <% }else{ %>
+                <span class="form-control">(暂未填写)</span>
+                <% } %>
+            </div>
+
+            <a class="btn" href="/">返回首页</a>
+        </div>
+        <div class="per-doc">
+            <% if(user.type!='student'){%>
+            <ul id="type" class="nav nav-tabs">
+                <li><a href="/personalInfo?&id=<%=user.id%>&type=all">所有分类 <span class="badge"><%=badge.all%></span></a></li>
+                <li><a href="/personalInfo?&id=<%=user.id%>&type=thesis">论文 <span class="badge"><%=badge.thesis%></span></a></li>
+                <li><a href="/personalInfo?&id=<%=user.id%>&type=lecture">讲座 <span class="badge"><%=badge.lecture%></span></a></li>
+                <li><a href="/personalInfo?&id=<%=user.id%>&type=award">获奖 <span class="badge"><%=badge.award%></span></a></li>
+                <li><a href="/personalInfo?&id=<%=user.id%>&type=article">文章 <span class="badge"><%=badge.article%></span></a></li>
+                <li><a href="/personalInfo?&id=<%=user.id%>&type=others">其他 <span class="badge"><%=badge.others%></span></a></li>
+                <li class="search">
+                    <form id="search-form">
+                        <input type="search" id="content" placeholder="搜索成果">
+                        <i class="icon-search" onclick="go(1)"></i>
+                    </form>
+                </li>
+            </ul>
+            <% }%>
+            <ul class="nav">
+                <% if(pageObj.data && pageObj.data.length > 0) { %>
+                <% pageObj.data.forEach(function (item) { %>
+                <li>
+                    <a href="/articleDetail?id=<%= item._id%>">
+                        <% if(item.image){ %>
+                        <img src="<%= item.image %>" alt="jpg">
+                        <% }else{ %>
+                        <img src="/images/article.jpg" alt="jpg">
+                        <% } %>
+
+
+                        <div>
+                            <p>类型:
+                                <% if(item.type=='thesis'){ %>
+                                论文
+                                <% }else if(item.type=='lecture'){%>
+                                讲座
+                                <% }else if(item.type=='award'){%>
+                                获奖
+                                <% }else if(item.type=='article'){%>
+                                文章
+                                <% }else{%>
+                                其它
+                                <% }%>
+                                &nbsp;
+                                <% if(item.status==false){ %>
+                                <span style="color: #e78170">正在审核中</span>
+                                <% }%>
+                            </p>
+                            <h3><%= item.title %></h3>
+                            <span>发表日期:<%= item.date %> · 阅读:<%= item.read %></span>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+                <% }) %>
+                <% } %>
+
+            </ul>
+            <% include common/paginationAjax.html %>
+        </div>
+    </div>
+
+</body>
+<script src="/lib/jQuery/jquery.min.js"></script>
+
+<script src="/lib/bootstrap/bootstrap.min.js"></script>
+
+<script>
+    var pageObj =  <%- JSON.stringify(pageObj) %>;
+    var user =  <%- JSON.stringify(user) %>;
+    $(function(){
+        if(pageObj.content)  $("#content").val(pageObj.content);
+        var type = pageObj.type;
+        if((typeof type)=='undefined')  type='all';
+        console.log(type);
+        if(type=='all'){
+            $("#type li:eq(0)").addClass("active");
+        }else if(type=='thesis'){
+            $("#type li:eq(1)").addClass("active");
+        }else if(type=='lecture'){
+            $("#type li:eq(2)").addClass("active");
+        }else if(type=='award'){
+            $("#type li:eq(3)").addClass("active");
+        }else if(type=='article'){
+            $("#type li:eq(4)").addClass("active");
+        }else if(type=='others'){
+            $("#type li:eq(5)").addClass("active");
+        }
+
+    });
+    function go(page) {
+        var url = '/personalInfo?id='+user.id;
+        if(pageObj.type)  url+='&type='+  pageObj.type;
+        if($("#content").val().trim()!='')  url+='&content='+  $("#content").val().trim();
+
+        window.location.href = url;
+    }
+</script>
+
+</html>

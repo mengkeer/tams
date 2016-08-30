@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>东华大学教师成果发布系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <link href="/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/lib/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+<body onload="setTitleWidth()" onresize="setTitleWidth()">
+
+<% include common/userBar.html %>
+
+<!--left navbar-->
+<div class="navbar left-navbar">
+    <a href="/index"><span>教师成果</span></a>
+    <a href="/indexTeaArt"><span>教师文章</span></a>
+    <a class="navbar-active" href="/indexStuArt"><span>学生心得</span></a>
+</div>
+
+<!--right container-->
+<div class="right-container">
+    <div class="right-picture right-picture-stuArt">
+        <div>
+            <span>东华大学计算机学院</span>
+            <button onclick="submitArt()" class="btn">点此提交文章</button>
+        </div>
+    </div>
+    <div class="right-content">
+        <div class="page-title">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#">文章列表</a>
+                </li>
+                <!--<li>-->
+                <!--<a href="#">教师列表</a>-->
+                <!--</li>-->
+                <li class="search">
+                    <form id="search-form">
+                        <input type="search" id="content" placeholder="搜索文章">
+                        <i class="icon-search" onclick="go(1)"></i>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+        <div class="list-container">
+            <ul class="nav list-body list-art">
+                <!--<li>-->
+                <!--<a href="#">-->
+                <!--<img src="/images/list-test-img.jpg" alt="jpg">-->
+
+                <!--<div>-->
+                <!--<p>作者:陈3丁</p>-->
+                <!--<h3>3300的陈3丁</h3>-->
+                <!--<span>发表日期:2016-5-2 · 阅读:333</span>-->
+                <!--</div>-->
+
+                <!--<div class="clearfix"></div>-->
+                <!--</a>-->
+                <!--</li>-->
+
+                <% if(pageObj.data && pageObj.data.length > 0) { %>
+                <% pageObj.data.forEach(function (item) { %>
+                <li>
+                    <a href="/articleDetail?id=<%= item._id%>">
+                        <% if(item.image){ %>
+                        <img src="<%= item.image %>" alt="jpg">
+                        <% }else{ %>
+                        <img src="/images/article.jpg" alt="jpg">
+                        <% } %>
+
+
+                        <div>
+                            <p>作者:
+                                <% if(item.name){ %>
+                                <%= item.name%>
+                                <% }else{ %>
+                                <%= item.id%>
+                                <% } %>
+                                &nbsp; | &nbsp; 分类:文章
+                            </p>
+                            <h3><%= item.title %></h3>
+                            <span>发表日期:<%= item.date %> · 阅读:<%= item.read %></span>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+                <% }) %>
+                <% } %>
+
+            </ul>
+            <% include common/paginationAjax.html %>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+</body>
+
+<script src="/lib/jQuery/jquery.min.js"></script>
+
+<script src="/lib/bootstrap/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    var pageObj =  <%- JSON.stringify(pageObj) %>;
+    function setTitleWidth(){
+        $('.page-title').css('width',$('.list-container').width());
+    }
+
+    function submitArt(){
+        var user = <%- JSON.stringify((typeof user)=='undefined'?null:user) %>;
+        if(!user){
+            alert('请先登录!')
+        }else if(user.type != 'student'){
+            alert('只有学生才能提交学生心得!')
+        }else{
+            window.location.href='/studentArt';
+        }
+    }
+
+    $(function(){
+        if(pageObj.content)  $("#content").val(pageObj.content);
+        var type = pageObj.type;
+        if((typeof type)=='undefined')  type='all';
+        if(type=='all'){
+            $("#type li:eq(0)").addClass("active");
+        }else if(type=='thesis'){
+            $("#type li:eq(1)").addClass("active");
+        }else if(type=='lecture'){
+            $("#type li:eq(2)").addClass("active");
+        }else if(type=='award'){
+            $("#type li:eq(3)").addClass("active");
+        }else if(type=='others'){
+            $("#type li:eq(4)").addClass("active");
+        }
+
+    });
+
+    function go(page) {
+        var url = '/indexStuArt?page='+page;
+        if(pageObj.type)  url+='&type='+  pageObj.type;
+        if($("#content").val().trim()!='')  url+='&content='+  $("#content").val().trim();
+
+        window.location.href = url;
+    }
+
+</script>
+
+</html>

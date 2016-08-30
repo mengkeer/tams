@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查找用户</title>
+    <link href="/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/lib/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+
+</head>
+<body>
+<!--left navbar-->
+<div class="navbar left-navbar">
+    <a href="/index"><span>返回首页</span></a>
+    <a class="navbar-active" href="/getUsers"><span>用户列表</span></a>
+    <a href="/getAllArticles"><span>文章列表</span></a>
+    <a href="/getComments"><span>评论列表</span></a>
+</div>
+
+<!--body-->
+<div class="body-container">
+    <p>东华大学</p>
+    <p>教师教学成果信息管理系统</p>
+
+    <nav class="navbar navbar-default container">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="glyphicon glyphicon-bar"></span>
+                    <span class="glyphicon glyphicon-bar"></span>
+                    <span class="glyphicon glyphicon-bar"></span>
+                </button>
+                <span class="navbar-brand">筛选</span>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <form class="navbar-form">
+                            <label>类型：</label>
+
+                            <div class="form-group">
+                                <select id="type" name="type" class="form-control" onchange="go(1)">
+                                    <option value="all">全部</option>
+                                    <% if(user.type=='superadmin'){%>
+                                    <option value="admin">管理员</option>
+                                    <%}%>
+                                    <option value="teacher">老师</option>
+                                    <option value="student">学生</option>
+                                </select>
+                            </div>
+                        </form>
+                    </li>
+                    <li>
+                        <form class="navbar-form">
+                            <label>显示条数：</label>
+
+                            <select id="limit" name="type" class="form-control" onchange="go(1)">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                            </select>
+
+                        </form>
+                    </li>
+                    <li class="li-search">
+                        <div class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" id="content" class="form-control" placeholder="Search">
+                            </div>
+                            <button class="btn btn-default" onclick="go(1)">搜索</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="navbar-form">
+                            <button class="btn btn-default" data-toggle="modal" data-target="#modal-addUser">添加用户</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+        <div class="table-responsive" id="pageObj">
+            <% include userListTableAjax.html %>
+        </div>
+    </div>
+</div>
+<!--modal-->
+<div class="modal fade" id="modal-user" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">用户信息编辑</h4>
+            </div>
+
+            <div class="modal-body modal-edit">
+                <form action="">
+                    <div>
+                        <label class="form-control">名字：</label>
+                        <input id="user-name" class="form-control" type="text" name="name" required />
+                    </div>
+
+                    <div>
+                        <label class="form-control">身份：</label>
+                        <select id="user-type" class="form-control" name="type">
+                            <option value ="student">学生</option>
+                            <option value ="teacher">教师</option>
+                            <option value="admin">管理员</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="form-control">性别：</label>
+                        <select id="user-sex" class="form-control" name="sex">
+                            <option value ="男">男</option>
+                            <option value ="女">女</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="form-control">学院：</label>
+                        <input id="user-academic" class="form-control" type="text" name="academic"/>
+                    </div>
+
+                    <div>
+                        <label class="form-control">职称：</label>
+                        <input id="user-rank" class="form-control" type="text" name="rank"/>
+                    </div>
+
+                    <div>
+                        <label class="form-control">联系方式：</label>
+                        <input id="user-contact" class="form-control" type="text" name="contact"/>
+                    </div>
+
+                    <div>
+                        <label class="form-control">备注：</label>
+                        <input id="user-remark" class="form-control" type="text" name="remark"/>
+                    </div>
+
+                    <div>
+                        <label class="form-control">简介：</label>
+                        <input id="user-brief" class="form-control" type="text" name="brief"/>
+                    </div>
+
+                    <input class="btn" onclick="submitUser()" type="button" value="编辑">
+
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--modal add user-->
+<div class="modal fade" id="modal-addUser" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title">添加用户</h4>
+            </div>
+
+            <div class="modal-body modal-add">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#hand" data-toggle="tab">
+                            手动添加用户
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#excel" data-toggle="tab">
+                            excel导入用户
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="hand">
+                        <form class="hand" action="/addUser" method="post">
+                            <div>
+                                <label class="form-control">用户ID：</label>
+                                <input class="form-control" type="text" name="id" required/><br />
+                            </div>
+
+                            <div>
+                                <label class="form-control">密码：</label>
+                                <input class="form-control" type="password" name="password" required/>
+                            </div>
+
+                            <div>
+                                <label class="form-control">名字：</label>
+                                <input class="form-control" type="text" name="name" required />
+                            </div>
+
+                            <div>
+                                <label class="form-control">身份：</label>
+                                <select class="form-control" name="type">
+                                    <option value ="student">学生</option>
+                                    <option value ="teacher">老师</option>
+                                    <option value="admin">管理员</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="form-control">性别：</label>
+                                <select class="form-control" name="sex">
+                                    <option value ="男">男</option>
+                                    <option value ="女">女</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="form-control">学院：</label>
+                                <input class="form-control" type="text" name="academic" />
+                            </div>
+
+                            <div>
+                                <label class="form-control">职称：</label>
+                                <input class="form-control" type="text" name="rank" />
+                            </div>
+
+                            <div>
+                                <label class="form-control">联系方式：</label>
+                                <input class="form-control" type="text" name="contact" />
+                            </div>
+
+                            <div>
+                                <label class="form-control">备注：</label>
+                                <input class="form-control" type="text" name="remark" />
+                            </div>
+
+                            <div>
+                                <label class="form-control">简介：</label>
+                                <input class="form-control" type="text" name="brief" />
+                            </div>
+
+                            <input class="btn" type="submit" value="添加用户">
+                        </form>
+                    </div>
+                    <div class="tab-pane fade excel clearfix" id="excel" >
+
+                        <form id="excelFrom" class="excel" action="/upload" method="post" enctype="multipart/form-data">
+                            <input type="file" name="myfile"/>
+                            <a  href="/download/导入样例.xlsx">导入样例下载</a>
+                            <br />
+                            <div>
+                                <input id="check" name="check" type="checkbox" value="勾选后重复帐号覆盖,不勾选则跳过">
+                                <span>勾选后重复帐号覆盖,不勾选则跳过</span>
+                            </div>
+                            <input class="btn" type="button" onclick="uploadExcel()" value="上传">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="/lib/jQuery/jquery.min.js"></script>
+
+<script src="/lib/bootstrap/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    var userId;
+
+    $(function(){
+        var pageObj =  <%- JSON.stringify(pageObj) %>;
+        if(pageObj.type)  $("#type").val(pageObj.type);
+        if(pageObj.limit)  $("#limit").val(pageObj.limit);
+        if(pageObj.content)  $("#content").val(pageObj.content);
+    });
+
+    function openModal(btn){
+        var users = <%- JSON.stringify(pageObj.data) %>;
+        userId=$(btn).prevAll('.hidden-id').val();
+        for(var i=0;i<users.length;i++){
+            if(users[i].id == userId){
+                $('#user-name').val(users[i].name);
+                $('#user-type').val(users[i].type);
+                $('#user-sex').val(users[i].sex);
+                $('#user-academic').val(users[i].academic);
+                $('#user-rank').val(users[i].rank);
+                $('#user-contact').val(users[i].contact);
+                $('#user-brief').val(users[i].brief);
+                $('#user-remark').val(users[i].remark);
+            }
+        }
+    }
+
+    function submitUser(){
+        var data={};
+        data.id=userId;
+        data.name=$('#user-name').val();
+        data.type=$('#user-type').val();
+        data.sex=$('#user-sex').val();
+        data.academic=$('#user-academic').val();
+        data.rank=$('#user-rank').val();
+        data.contact=$('#user-contact').val();
+        data.brief=$('#user-brief').val();
+        data.remark=$('#user-remark').val();
+
+        $.ajax({
+            url:"/editUser",
+            type:"POST",
+            data:data,
+            success:function(result){
+                if(result.type==1){
+                    alert("成功编辑");
+                    location.reload();
+                }else{
+                    alert("编辑失败");
+                }
+            }
+        });
+    }
+
+    function delUser(btn){
+        var con=window.confirm("是否删除?");
+        if(con == true){
+            var rs={};
+            rs.id=$(btn).prevAll('.hidden-id').val();
+            $.ajax({
+                url:"/removeUser",
+                type:"POST",
+                data:rs,
+                success:function(result){
+                    if(result.rs == 'success'){
+                        alert("删除成功");
+                        window.location.reload();
+                    }else{
+                        alert(result);
+                    }
+                }
+            });
+        }
+    }
+
+    function go(page) {
+        /*var params = {};
+         params.page = page;
+         params.limit = $("#limit").val();
+         params.type = $("#type").val();
+         params.content = $("#content").val();
+         var url = '/getUsersByLimits';
+         $.ajax({
+         url: url,
+         data: params,
+         type: 'get',
+         success: function (result) {
+         /!*console.log(result);
+         $('#pageObj').html(result);*!/
+         location.reload();
+         }
+         });*/
+        var url = '/getUsers?page='+page;
+        if($("#limit").val().trim()!='')  url+='&limit='+  $("#limit").val().trim();
+        if($("#type").val().trim()!='')  url+='&type='+  $("#type").val().trim();
+        if($("#content").val().trim()!='')  url+='&content='+  $("#content").val().trim();
+
+        window.location.href = url;
+    }
+
+    function uploadExcel(){
+        $.ajax({
+            url: '/upload?check='+$('#check').is(':checked')+'',
+            type: 'POST',
+            contentType:false,
+            cache: false,
+            data: new FormData($('#excelFrom')[0]),
+            processData: false,
+            success:function(result){
+                console.log(result);
+                alert(result.message);
+                location.reload();
+            }
+        })
+    }
+</script>
+
+</html>

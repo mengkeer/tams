@@ -1,0 +1,995 @@
+[Sun May 08 2016 21:45:19 GMT+0800 (中国标准时间)] /getUsers
+Error: Can't set headers after they are sent.
+    at ServerResponse.OutgoingMessage.setHeader (_http_outgoing.js:344:11)
+    at ServerResponse.header (x:\tams\node_modules\express\lib\response.js:718:10)
+    at ServerResponse.send (x:\tams\node_modules\express\lib\response.js:163:12)
+    at done (x:\tams\node_modules\express\lib\response.js:957:10)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:355:10)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\user.js:259:17
+    at x:\tams\server\logic\UserLogic.js:283:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:591:12)
+[Mon May 09 2016 21:59:08 GMT+0800 (中国标准时间)] /getUsers
+Error: Can't set headers after they are sent.
+    at ServerResponse.OutgoingMessage.setHeader (_http_outgoing.js:344:11)
+    at ServerResponse.header (x:\tams\node_modules\express\lib\response.js:718:10)
+    at ServerResponse.send (x:\tams\node_modules\express\lib\response.js:163:12)
+    at done (x:\tams\node_modules\express\lib\response.js:957:10)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:355:10)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\user.js:259:17
+    at x:\tams\server\logic\UserLogic.js:283:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:591:12)
+[Sat May 14 2016 12:54:37 GMT+0800 (中国标准时间)] /getTaArticles?type=thesis
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\article.js:57:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:511:3)
+    at x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:582:16
+    at queryCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:220:18)
+    at Callbacks.emit (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:119:3)
+[Sat May 14 2016 12:54:55 GMT+0800 (中国标准时间)] /getTaArticles?type=thesis
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\article.js:57:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:511:3)
+    at x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:582:16
+    at queryCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:220:18)
+    at Callbacks.emit (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:119:3)
+[Sat May 14 2016 12:54:59 GMT+0800 (中国标准时间)] /getTaArticles?type=all
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\article.js:57:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 12:55:39 GMT+0800 (中国标准时间)] /index
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:57:21
+    at x:\tams\server\logic\ArticleLogic.js:462:21
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 12:55:48 GMT+0800 (中国标准时间)] /index
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:57:21
+    at x:\tams\server\logic\ArticleLogic.js:462:21
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 12:56:14 GMT+0800 (中国标准时间)] /index
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:57:21
+    at x:\tams\server\logic\ArticleLogic.js:462:21
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 12:56:27 GMT+0800 (中国标准时间)] /index
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:57:21
+    at x:\tams\server\logic\ArticleLogic.js:462:21
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 12:56:56 GMT+0800 (中国标准时间)] /index
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:55:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 12:57:09 GMT+0800 (中国标准时间)] /index
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:55:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 12:57:27 GMT+0800 (中国标准时间)] /index
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:55:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 12:57:51 GMT+0800 (中国标准时间)] /index
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:55:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 12:58:50 GMT+0800 (中国标准时间)] /index
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:55:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 12:59:23 GMT+0800 (中国标准时间)] /index
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:55:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 12:59:34 GMT+0800 (中国标准时间)] /index
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:55:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 13:00:59 GMT+0800 (中国标准时间)] /index
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <!--<li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>-->
+    54|                     <!--<li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>-->
+    55|                     <!--<li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>-->
+    56|                     <!--<li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>-->
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:55:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 13:01:15 GMT+0800 (中国标准时间)] /index
+TypeError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <!--<li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= pageObj.badge.all%></span></a></li>-->
+    54|                     <!--<li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= pageObj.badge.thesis%></span></a></li>-->
+    55|                     <!--<li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= pageObj.badge.lecture%></span></a></li>-->
+    56|                     <!--<li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= pageObj.badge.award%></span></a></li>-->
+
+Cannot read property 'all' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:36)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:55:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 13:06:47 GMT+0800 (中国标准时间)] /getTaArticles?type=thesis
+ReferenceError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= badge.award%></span></a></li>
+
+badge is not defined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:23)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\article.js:57:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:511:3)
+    at x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:582:16
+    at queryCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:220:18)
+    at Callbacks.emit (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:119:3)
+[Sat May 14 2016 13:18:36 GMT+0800 (中国标准时间)] /
+ReferenceError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= badge.award%></span></a></li>
+
+badge is not defined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:23)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:13:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 13:19:00 GMT+0800 (中国标准时间)] /
+ReferenceError: x:\tams\views\index.html:53
+    51|             <div class="list-container">
+    52|                 <ul id="type" class="nav nav-tabs">
+ >> 53|                     <li><a href="/getTaArticles?type=all">所有分类 <span class="badge"><%= badge.all%></span></a></li>
+    54|                     <li><a href="/getTaArticles?type=thesis">论文 <span class="badge"><%= badge.thesis%></span></a></li>
+    55|                     <li><a href="/getTaArticles?type=lecture">讲座 <span class="badge"><%= badge.lecture%></span></a></li>
+    56|                     <li><a href="/getTaArticles?type=award">获奖 <span class="badge"><%= badge.award%></span></a></li>
+
+badge is not defined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:32:23)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\common.js:13:17
+    at x:\tams\server\logic\ArticleLogic.js:97:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 18:53:24 GMT+0800 (中国标准时间)] /personalInfo?id=131340127
+ReferenceError: x:\tams\views\personalInfo.html:96
+    94|             <% if(user.type!='student'){%>
+    95|             <ul id="type" class="nav nav-tabs">
+ >> 96|                 <li><a href="/personalCenter?type=all">所有分类 <span class="badge"><%=badge.all%></span></a></li>
+    97|                 <li><a href="/personalCenter?type=thesis">论文 <span class="badge"><%=badge.thesis%></span></a></li>
+    98|                 <li><a href="/personalCenter?type=lecture">讲座 <span class="badge"><%=badge.lecture%></span></a></li>
+    99|                 <li><a href="/personalCenter?type=award">获奖 <span class="badge"><%=badge.award%></span></a></li>
+
+badge is not defined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:110:23)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\user.js:320:21
+    at x:\tams\server\logic\ArticleLogic.js:381:25
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)
+    at setCursorDeadAndNotified (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:501:3)
+    at nextFunction (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:652:7)
+    at Cursor.next [as _next] (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:693:3)
+    at fetchDocs (x:\tams\node_modules\mongodb\lib\cursor.js:835:10)
+[Sat May 14 2016 20:43:41 GMT+0800 (中国标准时间)] /articleDetail?id=5729f2c0fc52942c1a5b0220
+TypeError: x:\tams\views\articleDetail.html:92
+    90|                     <span class="reply-time"><i class="icon-calendar"></i><%= item.date %></span>
+    91|                     <% if(user !== null){ %>
+ >> 92|                     <% if(user.id == article.id && item.reply == ''){ %>
+    93|                     <button onclick="reply(this)">回复</button>
+    94|                     <% } %>
+    95|                     <% } %>
+
+Cannot read property 'id' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:122:15)
+    at Array.forEach (native)
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:107:17)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\article.js:113:13
+    at x:\tams\server\logic\ArticleLogic.js:457:17
+    at x:\tams\node_modules\async\dist\async.js:365:16
+    at processQueue (x:\tams\node_modules\async\dist\async.js:2838:24)
+    at taskComplete (x:\tams\node_modules\async\dist\async.js:2860:13)
+    at x:\tams\node_modules\async\dist\async.js:2883:21
+    at x:\tams\node_modules\async\dist\async.js:307:31
+[Sat May 14 2016 20:43:43 GMT+0800 (中国标准时间)] /articleDetail?id=5729f2c0fc52942c1a5b0220
+TypeError: x:\tams\views\articleDetail.html:92
+    90|                     <span class="reply-time"><i class="icon-calendar"></i><%= item.date %></span>
+    91|                     <% if(user !== null){ %>
+ >> 92|                     <% if(user.id == article.id && item.reply == ''){ %>
+    93|                     <button onclick="reply(this)">回复</button>
+    94|                     <% } %>
+    95|                     <% } %>
+
+Cannot read property 'id' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:122:15)
+    at Array.forEach (native)
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:107:17)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\article.js:113:13
+    at x:\tams\server\logic\ArticleLogic.js:457:17
+    at x:\tams\node_modules\async\dist\async.js:365:16
+    at processQueue (x:\tams\node_modules\async\dist\async.js:2838:24)
+    at taskComplete (x:\tams\node_modules\async\dist\async.js:2860:13)
+    at x:\tams\node_modules\async\dist\async.js:2883:21
+    at x:\tams\node_modules\async\dist\async.js:307:31
+[Sat May 14 2016 20:43:52 GMT+0800 (中国标准时间)] /articleDetail?id=5729f2c0fc52942c1a5b0220
+TypeError: x:\tams\views\articleDetail.html:92
+    90|                     <span class="reply-time"><i class="icon-calendar"></i><%= item.date %></span>
+    91|                     <% if(user !== null){ %>
+ >> 92|                     <% if(user.id == article.id && item.reply == ''){ %>
+    93|                     <button onclick="reply(this)">回复</button>
+    94|                     <% } %>
+    95|                     <% } %>
+
+Cannot read property 'id' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:122:15)
+    at Array.forEach (native)
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:107:17)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\article.js:113:13
+    at x:\tams\server\logic\ArticleLogic.js:457:17
+    at x:\tams\node_modules\async\dist\async.js:365:16
+    at processQueue (x:\tams\node_modules\async\dist\async.js:2838:24)
+    at taskComplete (x:\tams\node_modules\async\dist\async.js:2860:13)
+    at x:\tams\node_modules\async\dist\async.js:2883:21
+    at x:\tams\node_modules\async\dist\async.js:307:31
+[Sat May 14 2016 20:44:07 GMT+0800 (中国标准时间)] /articleDetail?id=572f4800cadb26b421c16fb0
+TypeError: x:\tams\views\articleDetail.html:92
+    90|                     <span class="reply-time"><i class="icon-calendar"></i><%= item.date %></span>
+    91|                     <% if(user !== null){ %>
+ >> 92|                     <% if(user.id == article.id && item.reply == ''){ %>
+    93|                     <button onclick="reply(this)">回复</button>
+    94|                     <% } %>
+    95|                     <% } %>
+
+Cannot read property 'id' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:122:15)
+    at Array.forEach (native)
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:107:17)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\article.js:113:13
+    at x:\tams\server\logic\ArticleLogic.js:457:17
+    at x:\tams\node_modules\async\dist\async.js:365:16
+    at processQueue (x:\tams\node_modules\async\dist\async.js:2838:24)
+    at taskComplete (x:\tams\node_modules\async\dist\async.js:2860:13)
+    at x:\tams\node_modules\async\dist\async.js:2883:21
+    at x:\tams\node_modules\async\dist\async.js:307:31
+[Sat May 14 2016 20:44:10 GMT+0800 (中国标准时间)] /articleDetail?id=572f4800cadb26b421c16fb0
+TypeError: x:\tams\views\articleDetail.html:92
+    90|                     <span class="reply-time"><i class="icon-calendar"></i><%= item.date %></span>
+    91|                     <% if(user !== null){ %>
+ >> 92|                     <% if(user.id == article.id && item.reply == ''){ %>
+    93|                     <button onclick="reply(this)">回复</button>
+    94|                     <% } %>
+    95|                     <% } %>
+
+Cannot read property 'id' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:122:15)
+    at Array.forEach (native)
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:107:17)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\article.js:113:13
+    at x:\tams\server\logic\ArticleLogic.js:457:17
+    at x:\tams\node_modules\async\dist\async.js:365:16
+    at processQueue (x:\tams\node_modules\async\dist\async.js:2838:24)
+    at taskComplete (x:\tams\node_modules\async\dist\async.js:2860:13)
+    at x:\tams\node_modules\async\dist\async.js:2883:21
+    at x:\tams\node_modules\async\dist\async.js:307:31
+[Sun May 15 2016 16:34:05 GMT+0800 (中国标准时间)] /
+TypeError: req.session.lastVisit.toDateString is not a function
+    at x:\tams\routes\common.js:7:43
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at next (x:\tams\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (x:\tams\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at x:\tams\node_modules\express\lib\router\index.js:277:22
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at Function.handle (x:\tams\node_modules\express\lib\router\index.js:176:3)
+    at router (x:\tams\node_modules\express\lib\router\index.js:46:12)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (x:\tams\node_modules\express\lib\router\index.js:312:13)
+    at x:\tams\node_modules\express\lib\router\index.js:280:7
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at x:\tams\node_modules\express\lib\router\index.js:618:15
+[Sun May 15 2016 16:34:10 GMT+0800 (中国标准时间)] /
+TypeError: req.session.lastVisit.toDateString is not a function
+    at x:\tams\routes\common.js:7:43
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at next (x:\tams\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (x:\tams\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at x:\tams\node_modules\express\lib\router\index.js:277:22
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at Function.handle (x:\tams\node_modules\express\lib\router\index.js:176:3)
+    at router (x:\tams\node_modules\express\lib\router\index.js:46:12)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (x:\tams\node_modules\express\lib\router\index.js:312:13)
+    at x:\tams\node_modules\express\lib\router\index.js:280:7
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at x:\tams\node_modules\express\lib\router\index.js:618:15
+[Sun May 15 2016 16:34:21 GMT+0800 (中国标准时间)] /
+TypeError: req.session.lastVisit.toDateString is not a function
+    at x:\tams\routes\common.js:7:43
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at next (x:\tams\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (x:\tams\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at x:\tams\node_modules\express\lib\router\index.js:277:22
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at Function.handle (x:\tams\node_modules\express\lib\router\index.js:176:3)
+    at router (x:\tams\node_modules\express\lib\router\index.js:46:12)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (x:\tams\node_modules\express\lib\router\index.js:312:13)
+    at x:\tams\node_modules\express\lib\router\index.js:280:7
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at x:\tams\node_modules\express\lib\router\index.js:618:15
+[Sun May 15 2016 16:34:31 GMT+0800 (中国标准时间)] /
+TypeError: req.session.lastVisit.toDateString is not a function
+    at x:\tams\routes\common.js:7:43
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at next (x:\tams\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (x:\tams\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at x:\tams\node_modules\express\lib\router\index.js:277:22
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at Function.handle (x:\tams\node_modules\express\lib\router\index.js:176:3)
+    at router (x:\tams\node_modules\express\lib\router\index.js:46:12)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (x:\tams\node_modules\express\lib\router\index.js:312:13)
+    at x:\tams\node_modules\express\lib\router\index.js:280:7
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at x:\tams\node_modules\express\lib\router\index.js:618:15
+[Sun May 15 2016 16:34:33 GMT+0800 (中国标准时间)] /
+TypeError: req.session.lastVisit.toDateString is not a function
+    at x:\tams\routes\common.js:7:43
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at next (x:\tams\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (x:\tams\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at x:\tams\node_modules\express\lib\router\index.js:277:22
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at Function.handle (x:\tams\node_modules\express\lib\router\index.js:176:3)
+    at router (x:\tams\node_modules\express\lib\router\index.js:46:12)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (x:\tams\node_modules\express\lib\router\index.js:312:13)
+    at x:\tams\node_modules\express\lib\router\index.js:280:7
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at x:\tams\node_modules\express\lib\router\index.js:618:15
+[Sun May 15 2016 16:34:59 GMT+0800 (中国标准时间)] /
+TypeError: req.session.lastVisit.toLocaleDateString is not a function
+    at x:\tams\routes\common.js:7:43
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at next (x:\tams\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (x:\tams\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at x:\tams\node_modules\express\lib\router\index.js:277:22
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at Function.handle (x:\tams\node_modules\express\lib\router\index.js:176:3)
+    at router (x:\tams\node_modules\express\lib\router\index.js:46:12)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (x:\tams\node_modules\express\lib\router\index.js:312:13)
+    at x:\tams\node_modules\express\lib\router\index.js:280:7
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at x:\tams\node_modules\express\lib\router\index.js:618:15
+[Sun May 15 2016 16:35:02 GMT+0800 (中国标准时间)] /
+TypeError: req.session.lastVisit.toLocaleDateString is not a function
+    at x:\tams\routes\common.js:7:43
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at next (x:\tams\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (x:\tams\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at x:\tams\node_modules\express\lib\router\index.js:277:22
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at Function.handle (x:\tams\node_modules\express\lib\router\index.js:176:3)
+    at router (x:\tams\node_modules\express\lib\router\index.js:46:12)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (x:\tams\node_modules\express\lib\router\index.js:312:13)
+    at x:\tams\node_modules\express\lib\router\index.js:280:7
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at x:\tams\node_modules\express\lib\router\index.js:618:15
+[Sun May 15 2016 16:35:05 GMT+0800 (中国标准时间)] /
+TypeError: req.session.lastVisit.toLocaleDateString is not a function
+    at x:\tams\routes\common.js:7:43
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at next (x:\tams\node_modules\express\lib\router\route.js:131:13)
+    at Route.dispatch (x:\tams\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at x:\tams\node_modules\express\lib\router\index.js:277:22
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at Function.handle (x:\tams\node_modules\express\lib\router\index.js:176:3)
+    at router (x:\tams\node_modules\express\lib\router\index.js:46:12)
+    at Layer.handle [as handle_request] (x:\tams\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (x:\tams\node_modules\express\lib\router\index.js:312:13)
+    at x:\tams\node_modules\express\lib\router\index.js:280:7
+    at Function.process_params (x:\tams\node_modules\express\lib\router\index.js:330:12)
+    at next (x:\tams\node_modules\express\lib\router\index.js:271:10)
+    at x:\tams\node_modules\express\lib\router\index.js:618:15
+[Sun May 15 2016 16:38:47 GMT+0800 (中国标准时间)] /articleDetail?id=5736fd8e181e129c251cb4d9
+TypeError: x:\tams\views\articleDetail.html:92
+    90|                     <span class="reply-time"><i class="icon-calendar"></i><%= item.date %></span>
+    91|                     <% if(user !== null){ %>
+ >> 92|                     <% if(user.id == article.id && item.reply == ''){ %>
+    93|                     <button onclick="reply(this)">回复</button>
+    94|                     <% } %>
+    95|                     <% } %>
+
+Cannot read property 'id' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:122:15)
+    at Array.forEach (native)
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:107:17)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\article.js:114:17
+    at x:\tams\server\logic\ArticleLogic.js:553:21
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\collection.js:1010:5
+    at commandCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:1194:9)
+    at Callbacks.emit (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:119:3)
+    at null.messageHandler (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:358:23)
+[Sun May 15 2016 16:39:04 GMT+0800 (中国标准时间)] /articleDetail?id=5736fd8e181e129c251cb4d9
+TypeError: x:\tams\views\articleDetail.html:92
+    90|                     <span class="reply-time"><i class="icon-calendar"></i><%= item.date %></span>
+    91|                     <% if(user !== null){ %>
+ >> 92|                     <% if(user.id == article.id && item.reply == ''){ %>
+    93|                     <button onclick="reply(this)">回复</button>
+    94|                     <% } %>
+    95|                     <% } %>
+
+Cannot read property 'id' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:122:15)
+    at Array.forEach (native)
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:107:17)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\article.js:114:17
+    at x:\tams\server\logic\ArticleLogic.js:553:21
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\collection.js:1010:5
+    at commandCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:1194:9)
+    at Callbacks.emit (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:119:3)
+    at null.messageHandler (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:358:23)
+[Sun May 15 2016 16:40:16 GMT+0800 (中国标准时间)] /articleDetail?id=5736fd8e181e129c251cb4d9
+TypeError: x:\tams\views\articleDetail.html:92
+    90|                     <span class="reply-time"><i class="icon-calendar"></i><%= item.date %></span>
+    91|                     <% if(user !== null){ %>
+ >> 92|                     <% if(user.id == article.id && item.reply == ''){ %>
+    93|                     <button onclick="reply(this)">回复</button>
+    94|                     <% } %>
+    95|                     <% } %>
+
+Cannot read property 'id' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:122:15)
+    at Array.forEach (native)
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:107:17)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\article.js:115:17
+    at x:\tams\server\logic\ArticleLogic.js:553:21
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\collection.js:1010:5
+    at commandCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:1194:9)
+    at Callbacks.emit (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:119:3)
+    at null.messageHandler (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:358:23)
+[Sun May 15 2016 16:40:18 GMT+0800 (中国标准时间)] /articleDetail?id=5736fd8e181e129c251cb4d9
+TypeError: x:\tams\views\articleDetail.html:92
+    90|                     <span class="reply-time"><i class="icon-calendar"></i><%= item.date %></span>
+    91|                     <% if(user !== null){ %>
+ >> 92|                     <% if(user.id == article.id && item.reply == ''){ %>
+    93|                     <button onclick="reply(this)">回复</button>
+    94|                     <% } %>
+    95|                     <% } %>
+
+Cannot read property 'id' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:122:15)
+    at Array.forEach (native)
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:107:17)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\article.js:115:17
+    at x:\tams\server\logic\ArticleLogic.js:553:21
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\collection.js:1010:5
+    at commandCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:1194:9)
+    at Callbacks.emit (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:119:3)
+    at null.messageHandler (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:358:23)
+[Sun May 15 2016 16:42:18 GMT+0800 (中国标准时间)] /articleDetail?id=5736fd8e181e129c251cb4d9
+TypeError: x:\tams\views\articleDetail.html:92
+    90|                     <span class="reply-time"><i class="icon-calendar"></i><%= item.date %></span>
+    91|                     <% if(user !== null){ %>
+ >> 92|                     <% if(user.id == article.id && item.reply == ''){ %>
+    93|                     <button onclick="reply(this)">回复</button>
+    94|                     <% } %>
+    95|                     <% } %>
+
+Cannot read property 'id' of undefined
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:122:15)
+    at Array.forEach (native)
+    at eval (eval at <anonymous> (x:\tams\node_modules\ejs\lib\ejs.js:464:12), <anonymous>:107:17)
+    at returnedFn (x:\tams\node_modules\ejs\lib\ejs.js:493:17)
+    at View.exports.renderFile [as engine] (x:\tams\node_modules\ejs\lib\ejs.js:350:31)
+    at View.render (x:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (x:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (x:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (x:\tams\node_modules\express\lib\response.js:961:7)
+    at x:\tams\routes\article.js:115:17
+    at x:\tams\server\logic\ArticleLogic.js:553:21
+    at handleCallback (x:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at x:\tams\node_modules\mongodb\lib\collection.js:1010:5
+    at commandCallback (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:1194:9)
+    at Callbacks.emit (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:119:3)
+    at null.messageHandler (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:358:23)
+[Thu May 19 2016 00:35:37 GMT+0800 (中国标准时间)] /getUsers
+MongoError: server www.slotus.cc:27017 received an error {"name":"MongoError","message":"read ECONNRESET"}
+    at null.<anonymous> (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\topologies\server.js:213:40)
+    at g (events.js:260:16)
+    at emitTwo (events.js:87:13)
+    at emit (events.js:172:7)
+    at null.<anonymous> (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\connection\pool.js:119:12)
+    at g (events.js:260:16)
+    at emitTwo (events.js:87:13)
+    at emit (events.js:172:7)
+    at Socket.<anonymous> (x:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\connection\connection.js:151:49)
+    at Socket.g (events.js:260:16)
+    at emitOne (events.js:77:13)
+    at Socket.emit (events.js:169:7)
+    at emitErrorNT (net.js:1253:8)
+    at nextTickCallbackWith2Args (node.js:442:9)
+    at process._tickCallback (node.js:356:17)
+[Sun May 22 2016 21:20:08 GMT+0800 (中国标准时间)] /getTaArticles?page=1&type=all
+Error: Could not find matching close tag for "<%-".
+    at X:\tams\node_modules\ejs\lib\ejs.js:519:19
+    at Array.forEach (native)
+    at Object.Template.generateSource (X:\tams\node_modules\ejs\lib\ejs.js:505:15)
+    at Object.Template.compile (X:\tams\node_modules\ejs\lib\ejs.js:427:12)
+    at Object.compile (X:\tams\node_modules\ejs\lib\ejs.js:288:16)
+    at handleCache (X:\tams\node_modules\ejs\lib\ejs.js:147:16)
+    at View.exports.renderFile [as engine] (X:\tams\node_modules\ejs\lib\ejs.js:350:14)
+    at View.render (X:\tams\node_modules\express\lib\view.js:126:8)
+    at tryRender (X:\tams\node_modules\express\lib\application.js:639:10)
+    at EventEmitter.render (X:\tams\node_modules\express\lib\application.js:591:3)
+    at ServerResponse.render (X:\tams\node_modules\express\lib\response.js:961:7)
+    at X:\tams\routes\article.js:60:21
+    at X:\tams\server\logic\ArticleLogic.js:508:21
+    at handleCallback (X:\tams\node_modules\mongodb\lib\utils.js:96:12)
+    at X:\tams\node_modules\mongodb\lib\cursor.js:839:16
+    at handleCallback (X:\tams\node_modules\mongodb\node_modules\mongodb-core\lib\cursor.js:159:5)

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑用户</title>
+    <link href="/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/lib/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+
+</head>
+<body>
+    <!--left navbar-->
+    <div class="navbar left-navbar">
+        <a href="/getUsers"><span>返回列表</span></a>
+        <a class="navbar-active" href="/editUser"><span>编辑用户</span></a>
+    </div>
+
+    <!--body-->
+    <div class="body-container">
+        <p>东华大学</p>
+        <p>教师教学成果信息管理系统</p>
+
+        <div></div>
+
+        <form class="col-md-6" action="/editUser" method="post">
+            <div>
+                <label class="form-control">用户ID：</label>
+                <input class="form-control" type="text" name="id" required/><br />
+            </div>
+
+            <div>
+                <label class="form-control">名字：</label>
+                <input class="form-control" type="text" name="name" required />
+            </div>
+
+            <div>
+                <label class="form-control">身份：</label>
+                <select class="form-control" name="type">
+                    <option value ="student">学生</option>
+                    <option value ="teacher">老师</option>
+                    <option value="admin">管理员</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="form-control">性别：</label>
+                <input class="form-control" type="text" name="sex" />
+            </div>
+
+            <div>
+                <label class="form-control">学院：</label>
+                <input class="form-control" type="text" name="academic" />
+            </div>
+
+            <div>
+                <label class="form-control">职称：</label>
+                <input class="form-control" type="text" name="rank" />
+            </div>
+
+            <div>
+                <label class="form-control">联系方式：</label>
+                <input class="form-control" type="text" name="contact" />
+            </div>
+
+            <div>
+                <label class="form-control">备注：</label>
+                <input class="form-control" type="text" name="remark" />
+            </div>
+
+            <div>
+                <label class="form-control">简介：</label>
+                <input class="form-control" type="text" name="brief" />
+            </div>
+
+            <input class="btn" type="submit" value="编辑">
+        </form>
+    </div>
+</body>
+
+<script src="/lib/jQuery/jquery.min.js"></script>
+
+<script src="/lib/bootstrap/bootstrap.min.js"></script>
+
+</html>

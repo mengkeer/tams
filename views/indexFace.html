@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>东华大学教师成果发布系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <link href="/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/lib/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/stylesheets/face.css">
+</head>
+<body onload="init()">
+    <div class="face-container">
+        
+        <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel" data-slide-to="1"></li>
+                <li data-target="#carousel" data-slide-to="2"></li>
+            </ol>
+            <!-- pic -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="/images/face-1.jpg" alt="First slide">
+                </div>
+                <div class="item">
+                    <img src="/images/face-2.jpg" alt="Second slide">
+                </div>
+                <div class="item">
+                    <img src="/images/face-3.jpg" alt="Third slide">
+                </div>
+            </div>
+        </div>
+
+        <div class="face-body">
+            <h1>东华大学教师成果发布系统</h1>
+
+            <div>
+                <a class="btn" href="/login">登录系统</a>
+                <a class="btn" href="/register">学生注册</a>
+            </div>
+        </div>
+
+        <div class="overlay"></div>
+
+    </div>
+</body>
+<script src="/lib/jQuery/jquery.min.js"></script>
+
+<script src="/lib/bootstrap/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    function init(){
+        $('.face-body').slideDown(2000);
+    }
+</script>
+</html>

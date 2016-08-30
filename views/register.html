@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link href="/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/lib/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+</head>
+<body>
+    <!--left navbar-->
+    <div class="navbar left-navbar">
+        <a href="/index"><span>教师成果</span></a>
+        <a href="/indexTeaArt"><span>教师文章</span></a>
+        <a href="/indexStuArt"><span>学生心得</span></a>
+    </div>
+
+    <!--login body-->
+    <div class="login-container">
+        <h1>东华大学</h1>
+        <h2>教师教学成果信息管理系统</h2>
+
+        <h4>
+            <span>
+                <a href="/login" ">登录</a>
+                <b>·</b>
+                <span>注册</span>
+            </span>
+        </h4>
+
+        <form id="register-form" action="/register" method="post">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="icon-user"></i></span>
+                <input id="registerId" class="form-control" type="text" name="id" placeholder="用户名" required/>
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon"><i class="icon-lock"></i></span>
+                <input id="registerPwd" class="form-control" type="password" name="password" placeholder="密码" required/>
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon"><i class="icon-lock"></i></span>
+                <input id="registerPwd2" class="form-control" type="password" name="password_re" placeholder="再次输入密码" required/>
+            </div>
+
+            <input id="register-submit" class="btn" role="button" type="button" value="注册" onclick="registerJudge()">
+
+            <div class="loginError">
+                <span id="registerMessage"></span>
+            </div>
+        </form>
+    </div>
+</body>
+
+<script src="/lib/jQuery/jquery.min.js"></script>
+
+<script src="/lib/bootstrap/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    function registerJudge(){
+        if ($('#registerPwd').val() != $('#registerPwd2').val()){
+            $('#registerMessage').text('两次输入密码不一致');
+        }else{
+            var user={};
+            user.id=$('#registerId').val();
+            user.password=$('#registerPwd').val();
+            $.ajax({
+                url:"/register",
+                type:"POST",
+                data:user,
+                success:function(result){
+                    if(result.type==2){
+                        alert("注册成功");
+                        window.location.href='/';
+                    }else if(result.type==1){
+                        $('#registerMessage').text("帐号重复");
+                    }
+                }
+            });
+        }
+    }
+</script>
+
+</html>

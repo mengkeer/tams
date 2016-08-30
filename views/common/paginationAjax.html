@@ -1,0 +1,32 @@
+<%  if(pageObj && pageObj.totalPage>1){ %>
+<div class="col-md-12 column">
+    <ul class="pagination">
+        <%  if(pageObj.hasFirst){ %>
+        <li><a onclick="go(1)"  href="javascript:;" title="第一页">&lt;&lt;</a></li>
+        <%  } %>
+        <%  if(pageObj.hasPrevious){ %>
+            <li><a onclick="go(<%=pageObj.currPage-1%>)"  href="javascript:;" title="上一页">&lt;</a></li>
+        <%  } %>
+
+        <%
+             for (var i = pageObj.startPage; i <= pageObj.endPage; i++) {
+                 if (i == pageObj.currPage) {
+        %>
+                    <li class="active"><a onclick="go(<%=i%>)"  href="javascript:;"><%=i%></a></li>
+        <%
+                 } else {
+        %>
+                     <li><a onclick="go(<%=i%>)" href="javascript:;"><%=i%></a></li>
+        <%
+                }
+             }
+        %>
+        <% if(pageObj.hasNext){%>
+                    <li><a onclick="go(<%=pageObj.currPage+1%>)" href="javascript:;" title="下一页">&gt;</a></li>
+        <%  } %>
+        <% if(pageObj.hasEnd){%>
+        <li><a onclick="go(<%=pageObj.totalPage%>)" href="javascript:;" title="下一页">&gt;&gt;</a></li>
+        <%  } %>
+        <li><a onclick="go(<%=pageObj.endPage%>)" href="javascript:;" title="总共<%=pageObj.totalPage%>页，<%=pageObj.totalRow%>条数据"><%=pageObj.totalPage%>/<%=pageObj.totalRow%></a></li>
+    </ul>
+</div><%  } %>

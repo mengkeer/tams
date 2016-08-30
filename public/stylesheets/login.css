@@ -1,0 +1,66 @@
+/*login body*/
+.login-container{
+    margin-left: 45px;
+    width: 100%;
+    text-align: center;
+}
+.login-container>h1{
+    margin-top: 100px;
+    color: #e78170;
+    font-size: 48px;
+}
+.login-container>h2{
+    color: #f49484;
+}
+.login-container>h4{
+    margin: 70px auto 50px;
+    border-bottom: 1px solid #eeeeee;
+    color: #b1b1b1;
+}
+.login-container>h4>span{
+    position: relative;
+    top:10px;
+    background-color: #fff;
+}
+.login-container>h4>span>a,
+.login-container>h4>span>a:hover,
+.login-container>h4>span>a:focus,
+.login-container>h4>span>a:visited
+{
+    margin: 0 10px 0 10px;
+    color: #b1b1b1;
+    text-decoration: none;
+}
+.login-container>h4>span>span{
+    margin: 0 10px 0 10px;
+    color: #000;
+}
+.login-container>form{
+    width: 300px;
+    margin: auto;
+}
+.login-container>form>div{
+    margin-bottom: 10px;
+}
+.login-container>form>div>span{
+    background-color: #fff;
+}
+.login-container>form>div>span>i::before{
+    width: 12px;
+}
+.login-container>form>input{
+    background-color: #e78170;
+    color: #fff;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+}
+.login-container>form>input:hover,
+.login-container>form>input:focus{
+    color: #fff;
+}
+.login-container>form>.loginError>span{
+    font-size: 20px;
+    color: red;
+}

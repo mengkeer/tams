@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="/stylesheets/userBar.css">
+<!--user bar-->
+<div class="user">
+    <% if(!user){ %>
+    <a href="/login">
+        <i class="icon-signin"></i>
+        登录
+    </a>
+    <a href="/register">
+        <i class="icon-user"></i>
+        注册
+    </a>
+    <% }else if( user.type == 'superadmin' ){ %>
+    <a href="/getUsers">
+        <i class="icon-signin"></i>
+        后台
+    </a>
+    <a href="/logout">
+        <i class="icon-user"></i>
+        注销
+    </a>
+    <% }else if( user.type == 'student' || user.type == 'teacher' ){ %>
+    <a href="/personalCenter">
+        <i class="icon-signin"></i>
+        个人
+    </a>
+    <a href="/logout">
+        <i class="icon-user"></i>
+        注销
+    </a>
+    <% }else if( user.type == 'admin' ){ %>
+    <a href="/personalCenter">
+        <i class="icon-signin"></i>
+        个人
+    </a>
+    <a href="/getUsers">
+        <i class="icon-signin"></i>
+        后台
+    </a>
+    <a href="/logout">
+        <i class="icon-user"></i>
+        注销
+    </a>
+    <% } %>
+</div>

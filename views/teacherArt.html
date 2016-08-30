@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>教学成果发布</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <link href="/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/lib/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/lib/kindeditor/themes/default/default.css">
+
+    <link rel="stylesheet" href="/stylesheets/publish.css">
+</head>
+<body>
+<% include common/userBar.html %>
+<!--left navbar-->
+<div class="navbar left-navbar">
+    <a href="/index"><span>返回首页</span></a>
+    <% if(user.type !== 'student'){ %>
+    <a href="/teacherAch"><span>发布成果</span></a>
+    <% } %>
+    <a class="navbar-active" href="#"><span>发布文章</span></a>
+</div>
+
+<!--body-->
+<div class="body-container">
+    <div class="body-content">
+        <form id="uploadImg" action="">
+            <div class="publish-pic col-md-6">
+                <a href="">
+                    <input id="myImage" type="file" name="myImage">
+                    <span>添加自定义封面</span>
+                </a>
+                <span id="imgInfo"></span>
+                <input class="btn" type="button" value="封面上传" onclick="uploadPic()">
+                <p>大小限制:2MB</p>
+                <div>
+                    <% if(user.type == 'student'){ %>
+                    <img id="myCover" src="/images/stuArt.jpg" alt="title-pic">
+                    <% }else{ %>
+                    <img id="myCover" src="/images/teaArt.jpg" alt="title-pic">
+                    <% } %>
+                    <p>120 * 120</p>
+                </div>
+            </div>
+        </form>
+        <form action="">
+            <div class="publish-title col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon">标题:</span>
+                    <input id='title' type="text" class="form-control" name="title">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <span>内容:</span>
+            <textarea name="content" id="content"></textarea>
+            <input id="imgPath" name="image"  type="hidden">
+            <input class="btn" type="button" onclick="uploadArt()" value="提交">
+        </form>
+    </div>
+</div>
+
+</body>
+<script src="/lib/jQuery/jquery.min.js"></script>
+
+<script src="/lib/bootstrap/bootstrap.min.js"></script>
+
+<script src="/lib/kindeditor/kindeditor-min.js"></script>
+
+<script src="/lib/kindeditor/lang/zh_CN.js"></script>
+
+<script type="text/javascript">
+    var editor;
+    KindEditor.ready(function(K) {
+        editor = K.create('textarea[name="content"]', {
+            allowFileManager : true
+        });
+    });
+
+    $('#myImage').change(function(){
+        var path=$(this).val();
+        var str=path.split('\\');
+        var filename=str[str.length-1];
+        var a=filename.split(".");
+        var filetxt=a[a.length-1];
+        var filetype ="jpg,jpeg,png,JPG,PNG";
+        var rs=filetype.indexOf(filetxt);
+        if (rs>=0){
+            $('#imgInfo').text("已选:"+filename);
+        }
+        else{
+            alert('只支持jpg,png格式');
+        }
+    });
+
+    function uploadPic(){
+        $.ajax({
+            url: '/uploadImg',
+            type: 'POST',
+            contentType:false,
+            cache: false,
+            data: new FormData($('#uploadImg')[0]),
+            processData: false,
+            success:function(result){
+                if(result == 'error'){
+                    alert("文件类型有误或文件大小超出");
+                }else{
+                    $('#imgPath').val(result);
+                    $('#myCover').attr('src',result);
+                }
+            }
+        })
+    }
+
+    function uploadArt(){
+        var data={};
+        data.title=$('#title').val();
+        data.image=$('#imgPath').val();
+        data.content=editor.html();
+        $.ajax({
+            url: '/publish',
+            type: 'POST',
+            data: data,
+            success:function(result){
+                if(result == 'success'){
+                    alert('文章已提交,等待管理员审核');
+                    window.location.href='/index';
+                }
+            }
+        })
+    }
+</script>
+
+</html>

@@ -1,0 +1,140 @@
+/*left navbar*/
+.left-navbar{
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 10;
+    height: 100%;
+    width: 45px;
+    background-color: #2a2a2a;
+    border-radius: 0 !important;
+    text-align: center;
+    border: none;
+}
+.left-navbar>a{
+    text-align: center;
+    vertical-align: middle;
+    display: block;
+    width: 100%;
+    height: 120px;
+    padding: 5px 10px 0 10px;
+}
+.left-navbar>a>span,.left-navbar>a:visited,.left-navbar>a:hover,.left-navbar>a:focus{
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+.left-navbar>a:hover,.left-navbar>a:focus{
+    background-color: #f49484;
+}
+.left-navbar .navbar-active{
+    background-color: #e78170;
+}
+
+/*body*/
+.body-container{
+    margin-left: 45px;
+}
+.body-container>.body-content{
+    background-color: #f49484;
+    margin: 50px 20px;
+    padding: 20px;
+    border-radius: 30px;
+    text-align: center;
+}
+.body-container>.body-content>form>.publish-pic{
+    line-height: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+.body-container>.body-content>form>.publish-pic>a{
+    margin-top: 20px;
+    width: 200px;
+    padding: 0 10px;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    left:0;
+    top:0;
+    cursor: pointer;
+    color: #000;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    *display: inline;
+    *zoom: 1;
+}
+.body-container>.body-content>form>.publish-pic>a>input{
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+.body-container>.body-content>form>.publish-pic>a:hover,
+.body-container>.body-content>form>.publish-pic>a>input:hover{
+    color: #e78170;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none;
+}
+.body-container>.body-content>form>.publish-pic>span{
+    color: #fff;
+    position: absolute;
+    left:0;
+    top:-20px;
+    font-size: 13px;
+}
+.body-container>.body-content>form>.publish-pic>input{
+    position: absolute;
+    left: 0;
+    top:70px;
+    background-color: #fff;
+    padding: 0 10px !important;
+    width: 200px;
+    border: 1px solid #ddd;
+}
+.body-container>.body-content>form>.publish-pic>p{
+    color: #fff;
+    position: absolute;
+    top:35px;
+    left:0;
+}
+.body-container>.body-content>form>.publish-pic>div{
+    float: right;
+    margin-top: -20px;
+}
+.body-container>.body-content>form>.publish-pic>div>img{
+    width: 120px;
+    height: 120px;
+}
+.body-container>.body-content>form>.publish-pic>div>p{
+    line-height: 0;
+    color: #fff;
+}
+
+.body-container>.body-content>form>.publish-title{
+    padding-top: 55px;
+}
+.body-container>.body-content>form>.publish-title>.input-group>span{
+    background-color: #fff;
+}
+.body-container>.body-content>form>.clearfix{
+    border-bottom:1px solid #fff ;
+    margin-bottom: 10px;
+}
+.body-container>.body-content>form>span{
+    font-size: 24px;
+    color: #fff;
+}
+.body-container>.body-content>form>textarea{
+    width: 100%;
+    min-height: 300px;
+    visibility:hidden;
+}
+.body-container>.body-content>form>input{
+    margin-top: 20px;
+    background-color: #fff;
+    color: #000;
+}

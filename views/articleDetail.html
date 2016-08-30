@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= article.name%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <link href="/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <link href="/lib/Font-Awesome-3.2.1/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/stylesheets/article.css">
+</head>
+<body>
+
+<% include common/userBar.html %>
+
+<!--left navbar-->
+<div class="navbar left-navbar">
+    <a href="/index"><span>教师成果</span></a>
+    <a href="/indexTeaArt"><span>教师文章</span></a>
+    <a href="/indexStuArt"><span>学生心得</span></a>
+</div>
+
+<!--right container-->
+<div class="right-container">
+    <div class="article-title">
+        <span class="title-label">作者</span>
+            <span class="title-author">
+                 <% if(article.name){ %>
+                    <a href="/personalInfo?id=<%=article.id%>"><%= article.name%></a>
+                <% }else{ %>
+                    <a href="/personalInfo?id=<%=article.id%>"><%= article.id%></a>
+                <% } %>
+            </span>
+        <span class="title-date">分类：
+             <% if(article.type=='thesis'){ %>
+                论文
+            <% }else if(article.type=='lecture'){%>
+                讲座
+            <% }else if(article.type=='award'){%>
+                获奖
+            <% }else if(article.type=='article'){%>
+                文章
+            <% }else{%>
+                其它
+            <% } %>
+        </span>
+
+        <div>
+            <span>
+                <% if(poster.rank){%>
+                    <%=poster.rank %>
+                <% } %>
+            </span>
+            <span>
+                <% if(poster.academic){%>
+                    所属：<%=poster.academic %>
+                <% } %>
+            </span>
+        </div>
+    </div>
+
+    <div class="article-content">
+        <h1><%= article.title %></h1>
+        <% if(article.image){%>
+             <img src="<%= article.image %>" alt="jpg">
+        <% } %>
+        <span>发表于:<%= article.date%></span>
+
+        <div>
+           <%- article.content %>
+
+        </div>
+    </div>
+
+    <div class="article-commentList">
+        <div class="comment-head">
+            <span><%= comments.length %></span>个评论
+        </div>
+        <div class="comment-body">
+            <% if(comments && comments.length>0){ %>
+            <% comments.forEach(function(item){ %>
+            <div class="note-comment">
+                <span class="author-name"><i class="icon-user"></i>
+                   <a href="/personalInfo?id=<%=item.reviewer_id%>"><%= item.reviewer_name %></a> </span>
+
+                <p><%= item.content %></p>
+
+                <div>
+                    <span class="reply-time"><i class="icon-calendar"></i><%= item.date %></span>
+                    <% if((typeof user)!='undefined'&&user !== null){ %>
+                    <% if(user.id == article.id && item.reply == ''){ %>
+                    <button onclick="reply(this)">回复</button>
+                    <% } %>
+                    <% } %>
+                </div>
+                <div class="comment-text">
+                    <textarea class="reply-content" name="comment" cols="30" rows="10" placeholder="写下你的回复"></textarea>
+                    <input class="hidden-id" type="hidden" value="<%= item._id %>">
+                    <button class="btn" onclick="subReply(this)">发 表</button>
+                </div>
+                <% if(item.reply !== ''){ %>
+                <div class="child-comment">
+                    <span>作者回复</span>
+
+                    <p><%= item.reply %></p>
+                    <span><i class="icon-calendar"></i><%= item.reply_date %></span>
+                </div>
+                <% } %>
+
+            </div>
+            <% }) %>
+            <% } %>
+
+        </div>
+    </div>
+
+    <div class="article-comment">
+        <textarea id="comment" name="comment" cols="30" rows="10" placeholder="写下你的评论"></textarea>
+        <button class="btn" onclick="submitComment()">发 表</button>
+        <span id="comment-info"></span>
+    </div>
+</div>
+
+</body>
+<script src="/lib/jQuery/jquery.min.js"></script>
+
+<script src="/lib/bootstrap/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    function reply(btn) {
+        $(btn).parent().next().toggle();
+    }
+
+    function submitComment(){
+        var user = <%- JSON.stringify(user) %>;
+        var article=<%- JSON.stringify(article) %>;
+        if(!user){
+            $('#comment-info').text('请先登录!');
+        }else if($('#comment').val() == ''){
+            $('#comment-info').text('评论内容为空!');
+        }else{
+            var data={};
+            data._id=article._id;
+            data.title=article.title;
+            data.post_id=article.id;
+            data.post_name=article.name;
+            data.reviewer_id=user.id;
+            data.reviewer_name=user.name;
+            data.content=$('#comment').val();
+            $.ajax({
+                url:"/postComment",
+                type:"POST",
+                data:data,
+                success:function(result){
+                    if(result == 'success'){
+                        window.location.reload();
+                    }
+                }
+            });
+        }
+    }
+
+    function subReply(btn){
+        var user = <%- JSON.stringify(user) %>;
+        var article=<%- JSON.stringify(article) %>;
+        if(!user){
+            $('#comment-info').text('请先登录!');
+        }else if($(btn).prevAll('.reply-content').val() == ''){
+            alert('回复内容为空!');
+        }else if(user.id != article.id){
+            $('#comment-info').text('只有文章作者可以回复!');
+        }else{
+            var rs={};
+            rs.id=$(btn).prevAll('.hidden-id').val();
+            rs.reply=$(btn).prevAll('.reply-content').val();
+            $.ajax({
+                url:"/reply",
+                type:"POST",
+                data:rs,
+                success:function(result){
+                    if(result == 'success'){
+                        window.location.reload();
+                    }
+                }
+            });
+        }
+    }
+</script>
+
+</html>
